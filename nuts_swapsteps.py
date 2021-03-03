@@ -283,26 +283,6 @@ class NUTS_SwapVars(NUTS):
             warn = SamplerWarning(WarningType.TREEDEPTH, msg, "warn")
             warnings.append(warn)
         return warnings
-      
-from pymc3.backends.report import SamplerWarning, WarningType
-from pymc3.distributions import BART
-from pymc3.math import logbern, logdiffexp_numpy
-from pymc3.step_methods.arraystep import Competence
-from pymc3.step_methods.hmc.base_hmc import BaseHMC, DivergenceInfo, HMCStepData
-from pymc3.step_methods.hmc.integration import IntegrationError
-from pymc3.theanof import floatX
-from pymc3.vartypes import continuous_types
-from pymc3.step_methods.hmc import NUTS
-
-from pymc3.step_methods.hmc.nuts import _Tree
-from pymc3.step_methods.hmc import integration
-
-import time
-
-from collections import namedtuple
-
-__all__ = ["NUTS"]
-
 
 class NUTS_SwapAll(NUTS):
 
