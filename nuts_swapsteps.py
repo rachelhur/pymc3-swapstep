@@ -17,6 +17,17 @@ from collections import namedtuple
 
 __all__ = ["NUTS"]
 
+def delta_logp(logp, vars, shared):
+    [logp0], inarray0 = pm.join_nonshared_inputs([logp], vars, shared)
+
+    tensor_type = inarray0.type
+    inarray1 = tensor_type("inarray1")
+
+    logp1 = pm.CallableTensor(logp0)(inarray1)
+    f = theano.function([inarray1, inarray0], logp1 - logp0)
+    f.trust_input = True
+    return f
+
 class NUTS_SwapVars(NUTS):
 
     name = "nuts_swapvars"
