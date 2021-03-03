@@ -7,6 +7,8 @@ from pymc3.step_methods.hmc.integration import IntegrationError
 from pymc3.theanof import floatX
 from pymc3.vartypes import continuous_types
 from pymc3.step_methods.hmc import NUTS
+from pymc3.step_methods.arraystep import metrop_select
+
 
 from pymc3.step_methods.hmc.nuts import _Tree
 from pymc3.step_methods.hmc import integration
